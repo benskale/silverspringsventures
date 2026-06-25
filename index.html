@@ -6,7 +6,7 @@
 <title>Silver Springs Ventures - AI Agents Built for Your Business</title>
 <meta name="description" content="Silver Springs Ventures builds dedicated AI agents that handle content creation, social media, customer engagement, and operational workflows for businesses across any industry.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -24,7 +24,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Sohne', 'Sohne', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--warm-gray);
     color: var(--off-black);
     line-height: 1.65;
@@ -350,6 +350,100 @@
     font-weight: 500;
   }
 
+  /* APP DEVELOPMENT */
+  .apps {
+    background: var(--off-black);
+    border-radius: 24px;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .apps::before {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(245,158,11,0.12), transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .apps .section-label,
+  .apps .section-title {
+    color: var(--white);
+    position: relative;
+  }
+
+  .apps .section-subtitle {
+    color: rgba(255,255,255,0.55);
+    position: relative;
+  }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    position: relative;
+  }
+
+  .app-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .app-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(245,158,11,0.3);
+  }
+
+  .app-badge {
+    display: inline-block;
+    background: rgba(245,158,11,0.12);
+    border: 1px solid rgba(245,158,11,0.25);
+    color: var(--amber);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  .app-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .app-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .app-links {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .app-links a {
+    font-size: 13px;
+    color: var(--amber);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .app-links a:hover { text-decoration: underline; }
+
   /* WHY US */
   .why {
     background: linear-gradient(135deg, rgba(217,119,6,0.05), rgba(245,158,11,0.02));
@@ -477,6 +571,8 @@
     .split { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .caps { grid-template-columns: 1fr; }
+    .apps-grid { grid-template-columns: 1fr; }
+    .apps { padding: 36px 24px; }
     .cta-banner { padding: 40px 24px; }
     .cta-banner h2 { font-size: 26px; }
   }
@@ -491,6 +587,7 @@
     <div class="nav-links">
       <a href="#how">How It Works</a>
       <a href="#capabilities">Capabilities</a>
+      <a href="#apps">App Development</a>
       <a href="#industries">Industries</a>
       <a href="#contact" class="nav-cta">Get Started</a>
     </div>
@@ -606,6 +703,33 @@
     <span class="pill">📈 Marketing Agencies</span>
     <span class="pill">⚖️ Professional Services</span>
     <span class="pill">+ Your Industry</span>
+  </div>
+</section>
+
+<!-- APP DEVELOPMENT -->
+<section class="section" id="apps">
+  <div class="apps">
+    <div class="section-label">App Development</div>
+    <h2 class="section-title">We Ship Real Products</h2>
+    <p class="section-subtitle">We don't just talk about AI - we build and ship apps that real people use every day. That same engineering firepower goes into every client engagement.</p>
+    <div class="apps-grid">
+      <div class="app-card">
+        <span class="app-badge">LIVE ON APP STORE</span>
+        <h4>PinPlay.Golf</h4>
+        <p>A multiplayer golf scoring app with 23+ game types, real-time scoring, and tournament mode. Built with React, Capacitor, and live infrastructure. Shipping on Google Play next.</p>
+        <div class="app-links">
+          <a href="https://pinplay.golf" target="_blank">pinplay.golf</a>
+        </div>
+      </div>
+      <div class="app-card">
+        <span class="app-badge">IN DEVELOPMENT</span>
+        <h4>FitFine</h4>
+        <p>A fitness commitment app where users bet on themselves - miss your workouts, pay the price. Built with React, Supabase, Stripe, and Capacitor. Heading to the App Store.</p>
+        <div class="app-links">
+          <a href="https://fitfine.app" target="_blank">fitfine.app</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
