@@ -5,757 +5,902 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Silver Springs Ventures - AI Agents Built for Your Business</title>
 <meta name="description" content="Silver Springs Ventures builds dedicated AI agents that handle content creation, social media, customer engagement, and operational workflows for businesses across any industry.">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap');
+<link rel="canonical" href="https://silverspringsventures.com/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#F8F6F2">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Silver Springs Ventures - AI Agents Built for Your Business">
+<meta property="og:description" content="Dedicated AI agents that handle content, social media, and operations. Built around your business, not a template.">
+<meta property="og:url" content="https://silverspringsventures.com/">
+<meta property="og:image" content="https://silverspringsventures.com/og-image.svg">
+<meta property="og:site_name" content="Silver Springs Ventures">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Silver Springs Ventures - AI Agents Built for Your Business">
+<meta name="twitter:description" content="Dedicated AI agents that handle content, social media, and operations. Built around your business, not a template.">
+<meta name="twitter:image" content="https://silverspringsventures.com/og-image.svg">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Silver Springs Ventures",
+  "legalName": "Silver Springs Ventures LLC",
+  "url": "https://silverspringsventures.com",
+  "logo": "https://silverspringsventures.com/favicon.svg",
+  "description": "Builds dedicated AI agents that handle content creation, social media, customer engagement, and operational workflows for businesses.",
+  "email": "ben@silverspringsventures.com",
+  "telephone": "+1-480-332-2313",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Francisco",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  }
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Geist:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --charcoal: #1F2937;
-    --warm-gray: #F5F4F1;
-    --burnt-orange: #D97706;
-    --amber: #F59E0B;
-    --off-black: #111827;
-    --text-gray: #4B5563;
-    --light-gray: #6B7280;
-    --white: #FFFFFF;
+    --bg: #F8F6F2;
+    --ink: #1C1C1C;
+    --ink-2: #4A4A4A;
+    --ink-3: #8A8580;
+    --accent: #A0522D;
+    --accent-hover: #8B4513;
+    --accent-soft: rgba(160, 82, 45, 0.07);
+    --accent-border: rgba(160, 82, 45, 0.18);
+    --line: #E5E0D8;
+    --surface: #FFFFFF;
+    --dark: #1A1A1A;
+    --dark-2: #2A2A2A;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
   body {
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--warm-gray);
-    color: var(--off-black);
-    line-height: 1.65;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 200;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
+
+  /* Focus styles */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   /* NAV */
   .nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(245, 244, 241, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding: 16px 0;
+    background: rgba(248, 246, 242, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
   }
-
   .nav-inner {
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 0 32px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-
   .nav-logo {
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: -0.3px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: var(--ink);
+    text-decoration: none;
   }
-
-  .nav-logo span { color: var(--light-gray); font-weight: 400; }
-
+  .nav-logo span { color: var(--ink-3); font-weight: 400; }
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 28px;
     align-items: center;
   }
-
-  .nav-links a {
+  .nav-links a:not(.nav-cta) {
     text-decoration: none;
-    color: var(--text-gray);
+    color: var(--ink-2);
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--burnt-orange); }
-
-  .nav-cta {
-    background: linear-gradient(135deg, var(--burnt-orange), var(--amber));
-    color: var(--white);
-    padding: 9px 22px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .nav-cta:hover {
-    color: var(--white);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(217,119,6,0.3);
-  }
-
-  /* HERO */
-  .hero {
-    padding: 140px 32px 80px;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
     position: relative;
-    overflow: hidden;
+    padding: 4px 0;
+    transition: color 0.15s;
   }
-
-  .hero::before {
+  .nav-links a:not(.nav-cta)::after {
     content: '';
     position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(245,158,11,0.06), transparent 65%);
-    border-radius: 50%;
-    pointer-events: none;
+    bottom: 0; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.2s ease;
   }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(217,119,6,0.08);
-    border: 1px solid rgba(217,119,6,0.18);
-    color: var(--burnt-orange);
-    font-size: 13px;
-    font-weight: 600;
-    padding: 7px 18px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    letter-spacing: 0.3px;
+  .nav-links a:not(.nav-cta):hover {
+    color: var(--ink);
   }
+  .nav-links a:not(.nav-cta):hover::after {
+    width: 100%;
+  }
+  .nav-cta {
+    background: var(--ink);
+    color: var(--bg);
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .nav-cta:hover { background: var(--accent); color: var(--bg); }
 
+  /* HERO - asymmetric, left-aligned */
+  main { display: block; }
+
+  .hero {
+    padding: 140px 32px 100px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .hero-content {
+    max-width: 680px;
+  }
   .hero h1 {
+    font-family: var(--serif);
     font-size: 56px;
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 1.1;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
     margin-bottom: 24px;
-    position: relative;
+    font-variation-settings: 'opsz' 144;
   }
-
-  .hero h1 .gradient {
-    background: linear-gradient(135deg, var(--burnt-orange), var(--amber));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
   }
-
-  .hero p {
+  .hero-lede {
     font-size: 19px;
-    color: var(--text-gray);
-    max-width: 620px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 40px;
   }
-
+  .hero-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 32px;
+  }
   .hero-actions {
     display: flex;
-    gap: 16px;
-    justify-content: center;
+    gap: 14px;
+    align-items: center;
     flex-wrap: wrap;
   }
-
   .btn-primary {
-    background: linear-gradient(135deg, var(--burnt-orange), var(--amber));
-    color: var(--white);
-    padding: 15px 36px;
-    border-radius: 100px;
-    font-size: 16px;
-    font-weight: 600;
+    background: var(--accent);
+    color: #fff;
+    padding: 13px 32px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
     display: inline-block;
+    transition: background 0.15s;
   }
-
-  .btn-primary:hover {
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(217,119,6,0.35);
-  }
-
-  .btn-secondary {
-    background: var(--white);
-    color: var(--off-black);
-    border: 1px solid rgba(0,0,0,0.08);
-    padding: 15px 36px;
-    border-radius: 100px;
-    font-size: 16px;
-    font-weight: 600;
+  .btn-primary:hover { background: var(--accent-hover); color: #fff; }
+  .btn-ghost {
+    color: var(--ink);
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s;
   }
+  .btn-ghost:hover { color: var(--accent); }
+  .btn-ghost svg { transition: transform 0.15s; }
+  .btn-ghost:hover svg { transform: translateX(3px); }
 
-  .btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
-
-  /* SECTIONS */
+  /* SECTION BASE */
   .section {
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 80px 32px;
+    padding: 72px 32px;
   }
-
-  .section-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--burnt-orange);
-    margin-bottom: 12px;
-    text-align: center;
+  .section-eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: 0;
   }
-
   .section-title {
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    text-align: center;
-    margin-bottom: 16px;
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 14px;
+    font-variation-settings: 'opsz' 144;
   }
-
   .section-subtitle {
     font-size: 17px;
-    color: var(--text-gray);
-    text-align: center;
-    max-width: 580px;
-    margin: 0 auto 56px;
+    color: var(--ink-2);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 48px;
   }
 
-  /* PROBLEM / SOLUTION */
+  /* PROBLEM / SOLUTION - editorial two-column */
   .split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-bottom: 0;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .split-col {
+    padding: 44px 40px;
+  }
+  .split-col:first-child {
+    border-right: 1px solid var(--line);
+  }
+  .split-col.solution {
+    background: var(--accent-soft);
+  }
+  .split-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+  }
+  .split-col.solution .split-label { color: var(--accent); }
+  .split-col h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .split-col p {
+    font-size: 15.5px;
+    color: var(--ink-2);
+    line-height: 1.7;
   }
 
-  .split-card {
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 18px;
-    padding: 38px 34px;
-  }
-
-  .split-card.dark {
-    background: linear-gradient(135deg, rgba(217,119,6,0.04), rgba(245,158,11,0.02));
-    border-color: rgba(217,119,6,0.12);
-  }
-
-  .split-icon { font-size: 30px; margin-bottom: 16px; }
-
-  .split-card h3 {
-    font-size: 19px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
-  .split-card p {
-    font-size: 15px;
-    color: var(--text-gray);
-    line-height: 1.65;
-  }
-
-  /* HOW IT WORKS */
-  .steps {
+  /* HOW IT WORKS - timeline */
+  .how-steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    position: relative;
   }
-
+  .how-steps::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 32px;
+    right: 32px;
+    height: 1px;
+    background: var(--line);
+  }
   .step {
-    text-align: center;
+    padding: 0 20px 0 0;
+    position: relative;
   }
-
-  .step-num {
-    width: 52px;
-    height: 52px;
+  .step-dot {
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--burnt-orange), var(--amber));
+    background: var(--bg);
+    border: 2px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--white);
-    margin: 0 auto 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-3);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.2s, color 0.2s;
   }
-
+  .step:hover .step-dot {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
   .step h4 {
-    font-size: 16px;
-    font-weight: 700;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
     margin-bottom: 8px;
+    letter-spacing: -0.1px;
   }
-
   .step p {
     font-size: 14px;
-    color: var(--text-gray);
+    color: var(--ink-2);
     line-height: 1.55;
   }
 
-  /* CAPABILITIES */
-  .caps {
+  /* CAPABILITIES - bento grid */
+  .bento {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
   }
-
-  .cap {
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 14px;
-    padding: 30px 26px;
-    transition: transform 0.2s, box-shadow 0.2s;
+  .bento-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 28px 26px;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
   }
-
-  .cap:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.07);
-  }
-
-  .cap-emoji { font-size: 30px; margin-bottom: 14px; }
-
-  .cap h4 {
+  .bento-card:hover { border-color: var(--accent-border); }
+  .bento-card h4 {
+    font-family: var(--sans);
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 8px;
+    letter-spacing: -0.1px;
   }
-
-  .cap p {
+  .bento-card p {
     font-size: 14px;
-    color: var(--text-gray);
+    color: var(--ink-2);
     line-height: 1.55;
   }
+  .bento-card .cap-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .bento-card.feature {
+    grid-column: span 7;
+    grid-row: span 2;
+    padding: 36px 32px;
+  }
+  .bento-card.feature h4 { font-size: 22px; }
+  .bento-card.feature p { font-size: 15px; }
+  .bento-card.feature .feature-list {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    list-style: none;
+  }
+  .bento-card.feature .feature-list li {
+    font-size: 14px;
+    color: var(--ink-2);
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .bento-card.feature .feature-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .bento-small { grid-column: span 5; }
+  .bento-third { grid-column: span 4; }
 
   /* INDUSTRIES */
   .industries {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
+    gap: 10px;
   }
-
   .pill {
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.06);
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 100px;
-    padding: 10px 22px;
+    padding: 9px 20px;
     font-size: 14px;
-    color: var(--off-black);
+    color: var(--ink-2);
     font-weight: 500;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .pill:hover { border-color: var(--accent-border); color: var(--ink); }
+  .pill.accent {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    background: var(--accent-soft);
   }
 
-  /* APP DEVELOPMENT */
+  /* APPS - dark section */
+  .apps-section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
   .apps {
-    background: var(--off-black);
-    border-radius: 24px;
-    padding: 56px 48px;
-    position: relative;
-    overflow: hidden;
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 60px 48px;
   }
-
-  .apps::before {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(245,158,11,0.12), transparent 65%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .apps .section-label,
-  .apps .section-title {
-    color: var(--white);
-    position: relative;
-  }
-
-  .apps .section-subtitle {
-    color: rgba(255,255,255,0.55);
-    position: relative;
-  }
-
+  .apps .section-eyebrow { color: rgba(160, 82, 45, 0.8); }
+  .apps .section-title { color: #fff; }
+  .apps .section-subtitle { color: rgba(255,255,255,0.5); }
   .apps-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    position: relative;
+    gap: 20px;
   }
-
   .app-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 32px 28px;
-    transition: transform 0.2s, border-color 0.2s;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 28px 26px;
+    transition: border-color 0.2s;
   }
-
-  .app-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(245,158,11,0.3);
-  }
-
+  .app-card:hover { border-color: rgba(160, 82, 45, 0.35); }
   .app-badge {
     display: inline-block;
-    background: rgba(245,158,11,0.12);
-    border: 1px solid rgba(245,158,11,0.25);
-    color: var(--amber);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    padding: 5px 14px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent);
+    margin-bottom: 14px;
   }
-
   .app-card h4 {
     font-size: 18px;
-    font-weight: 700;
-    color: var(--white);
+    font-weight: 600;
+    color: #fff;
     margin-bottom: 8px;
   }
-
   .app-card p {
     font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
   }
-
   .app-links {
     margin-top: 16px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
   }
-
   .app-links a {
     font-size: 13px;
-    color: var(--amber);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
   }
+  .app-links a:hover { border-bottom-color: var(--accent); }
 
-  .app-links a:hover { text-decoration: underline; }
-
-  /* WHY US */
-  .why {
-    background: linear-gradient(135deg, rgba(217,119,6,0.05), rgba(245,158,11,0.02));
-    border: 1px solid rgba(217,119,6,0.12);
-    border-radius: 20px;
-    padding: 44px 40px;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .why h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .why ul {
+  /* WHY US - editorial list */
+  .why-list {
     list-style: none;
+    max-width: 720px;
   }
-
-  .why li {
-    padding: 10px 0;
-    font-size: 15.5px;
-    color: var(--text-gray);
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  .why-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
-
-  .why li::before {
-    content: '\25B8';
-    color: var(--burnt-orange);
-    font-weight: 700;
-    flex-shrink: 0;
+  .why-list li:last-child { border-bottom: none; }
+  .why-list li b {
     font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+  }
+  .why-list li span {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
   }
 
-  .why li b { color: var(--off-black); }
-
-  /* CTA BANNER */
-  .cta-banner {
-    background: var(--off-black);
-    border-radius: 24px;
-    padding: 60px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  /* CONTACT */
+  .contact {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 72px 32px 96px;
+    text-align: left;
   }
-
-  .cta-banner::before {
-    content: '';
-    position: absolute;
-    top: -40%;
-    right: -15%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(217,119,6,0.2), transparent 65%);
-    border-radius: 50%;
+  .contact-inner {
+    border-top: 2px solid var(--ink);
+    padding-top: 48px;
   }
-
-  .cta-banner h2 {
-    font-size: 34px;
-    font-weight: 800;
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
     letter-spacing: -1px;
-    color: var(--white);
-    margin-bottom: 16px;
-    position: relative;
+    margin-bottom: 20px;
+    max-width: 560px;
+    font-variation-settings: 'opsz' 144;
   }
-
-  .cta-banner p {
+  .contact p {
     font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 32px;
-    position: relative;
+    color: var(--ink-2);
+    margin-bottom: 36px;
+    max-width: 480px;
+    line-height: 1.6;
   }
-
-  .cta-banner .btn-primary {
-    position: relative;
+  .contact-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
   }
+  .contact-email {
+    font-size: 15px;
+    color: var(--ink-3);
+    margin-top: 28px;
+  }
+  .contact-email a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-border);
+    transition: border-color 0.15s;
+  }
+  .contact-email a:hover { border-bottom-color: var(--accent); }
 
   /* FOOTER */
   .footer {
-    background: var(--off-black);
-    color: rgba(255,255,255,0.5);
-    padding: 50px 32px 40px;
+    background: var(--dark);
+    color: rgba(255,255,255,0.4);
+    padding: 48px 32px 36px;
   }
-
   .footer-inner {
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 32px;
   }
-
-  .footer-logo {
+  .footer-brand {
+    font-family: var(--sans);
     font-size: 15px;
-    font-weight: 800;
-    color: var(--white);
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 6px;
   }
-
-  .footer-logo span { color: rgba(255,255,255,0.4); font-weight: 400; }
-
+  .footer-brand span { color: rgba(255,255,255,0.3); font-weight: 400; }
+  .footer-legal {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .footer-legal a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-legal a:hover { color: rgba(255,255,255,0.7); }
   .footer-info {
     font-size: 13px;
-    line-height: 1.8;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.35);
   }
-
   .footer-info a {
-    color: var(--amber);
+    color: rgba(160, 82, 45, 0.8);
     text-decoration: none;
+    transition: color 0.15s;
   }
+  .footer-info a:hover { color: rgba(160, 82, 45, 1); }
 
   /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .bento-card.feature { grid-column: span 12; grid-row: auto; }
+    .bento-small { grid-column: span 6; }
+    .bento-third { grid-column: span 6; }
+    .how-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+    .how-steps::before { display: none; }
+    .apps-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 768px) {
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero { padding: 120px 22px 60px; }
+    .hero { padding: 110px 22px 70px; }
     .hero h1 { font-size: 38px; }
-    .hero p { font-size: 17px; }
+    .hero-lede { font-size: 17px; }
     .section { padding: 56px 22px; }
     .section-title { font-size: 28px; }
     .split { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .caps { grid-template-columns: 1fr; }
-    .apps-grid { grid-template-columns: 1fr; }
-    .apps { padding: 36px 24px; }
-    .cta-banner { padding: 40px 24px; }
-    .cta-banner h2 { font-size: 26px; }
+    .split-col:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+    .split-col { padding: 36px 28px; }
+    .apps { padding: 40px 24px; }
+    .contact { padding: 48px 22px 72px; }
+    .contact h2 { font-size: 30px; }
+    .bento-small { grid-column: span 12; }
+    .bento-third { grid-column: span 12; }
+    .footer-inner { flex-direction: column; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 </style>
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <div class="nav-logo">SILVER SPRINGS <span>VENTURES</span></div>
+    <a href="/" class="nav-logo">SILVER SPRINGS <span>VENTURES</span></a>
     <div class="nav-links">
       <a href="#how">How It Works</a>
       <a href="#capabilities">Capabilities</a>
-      <a href="#apps">App Development</a>
-      <a href="#industries">Industries</a>
+      <a href="#apps">Products</a>
       <a href="#contact" class="nav-cta">Get Started</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">AI Agents Built for Your Business</div>
-  <h1>Your business, <span class="gradient">running on autopilot.</span></h1>
-  <p>Silver Springs Ventures builds dedicated AI agents that handle the repetitive work slowing your business down, from content creation and social media to customer engagement and data integration, so you can focus on what actually grows revenue.</p>
-  <div class="hero-actions">
-    <a href="#contact" class="btn-primary">Get Your Agent</a>
-    <a href="#how" class="btn-secondary">How It Works</a>
-  </div>
-</section>
+<main id="main">
 
-<!-- PROBLEM / SOLUTION -->
-<section class="section">
-  <div class="split">
-    <div class="split-card">
-      <h3>The Problem</h3>
-      <p>Businesses waste hours every day on tasks AI can handle, from drafting posts and managing listings to pulling analytics and responding to inquiries. Most off-the-shelf tools are generic, hard to set up, and don't adapt to how you actually work.</p>
-    </div>
-    <div class="split-card dark">
-      <h3>Our Solution</h3>
-      <p>A dedicated AI agent built specifically for your business. It learns your brand voice, connects to your tools, and runs your workflows autonomously. No prompt engineering required. No technical setup on your end. Just results.</p>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-title">From setup to full speed in days</h2>
-  <p class="section-subtitle">A guided process that gets your agent running without technical overhead on your end.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h4>Discovery Call</h4>
-      <p>We learn your business, your workflows, and where time is being lost.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h4>Agent Build</h4>
-      <p>We configure your agent with your brand voice, integrations, and capabilities.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h4>Onboarding</h4>
-      <p>Connect your accounts in minutes through a guided setup. We handle the rest.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <h4>Full Speed</h4>
-      <p>Your agent runs daily, creating content, posting, analyzing, and reporting.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CAPABILITIES -->
-<section class="section" id="capabilities">
-  <div class="section-label">Capabilities</div>
-  <h2 class="section-title">What Your Agent Can Do</h2>
-  <p class="section-subtitle">Every agent is custom-built around your specific needs. Here's what they're capable of.</p>
-  <div class="caps">
-    <div class="cap">
-      <h4>Content Engine</h4>
-      <p>Generates posts, captions, and creative assets in your brand voice automatically.</p>
-    </div>
-    <div class="cap">
-      <h4>Social Media</h4>
-      <p>Publishes to Instagram, Facebook, TikTok and tracks performance analytics.</p>
-    </div>
-    <div class="cap">
-      <h4>Integrations</h4>
-      <p>Connects your existing tools, from Google and social platforms to CRMs and APIs, all in one place.</p>
-    </div>
-    <div class="cap">
-      <h4>Analytics</h4>
-      <p>Pulls performance data and delivers actionable insights on a schedule.</p>
-    </div>
-    <div class="cap">
-      <h4>Creative Generation</h4>
-      <p>Produces professional images, videos, and branded visuals on demand.</p>
-    </div>
-    <div class="cap">
-      <h4>Custom Workflows</h4>
-      <p>Built around your specific industry needs, whatever your business requires.</p>
-    </div>
-  </div>
-</section>
-
-<!-- INDUSTRIES -->
-<section class="section" id="industries">
-  <div class="section-label">Industries</div>
-  <h2 class="section-title">Built For Any Industry</h2>
-  <p class="section-subtitle">Your agent adapts to your world, not the other way around.</p>
-  <div class="industries">
-    <span class="pill">Real Estate</span>
-    <span class="pill">Fitness & Wellness</span>
-    <span class="pill">Sports & Recreation</span>
-    <span class="pill">E-Commerce</span>
-    <span class="pill">Hospitality</span>
-    <span class="pill">Marketing Agencies</span>
-    <span class="pill">Professional Services</span>
-    <span class="pill">+ Your Industry</span>
-  </div>
-</section>
-
-<!-- APP DEVELOPMENT -->
-<section class="section" id="apps">
-  <div class="apps">
-    <div class="section-label">App Development</div>
-    <h2 class="section-title">We Ship Real Products</h2>
-    <p class="section-subtitle">We don't just talk about AI. We build and ship apps that real people use every day. That same engineering firepower goes into every client engagement.</p>
-    <div class="apps-grid">
-      <div class="app-card">
-        <span class="app-badge">LIVE ON APP STORE</span>
-        <h4>PinPlay.Golf</h4>
-        <p>A multiplayer golf scoring app with 23+ game types, real-time scoring, and tournament mode. Built with React, Capacitor, and live infrastructure. Shipping on Google Play next.</p>
-        <div class="app-links">
-          <a href="https://pinplay.golf" target="_blank">pinplay.golf</a>
-        </div>
-      </div>
-      <div class="app-card">
-        <span class="app-badge">IN DEVELOPMENT</span>
-        <h4>FitFine</h4>
-        <p>A fitness commitment app where users bet on themselves. Miss your workouts, pay the price. Built with React, Supabase, Stripe, and Capacitor. Heading to the App Store.</p>
-        <div class="app-links">
-          <a href="https://fitfine.app" target="_blank">fitfine.app</a>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>We build AI agents that run <em>your</em> workflows.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-lede">Silver Springs Ventures builds dedicated AI agents for content creation, social media, customer engagement, and operations. Each agent is custom-built around your business and runs every day.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Your Agent</a>
+        <a href="#how" class="btn-ghost">
+          See how it works
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- WHY US -->
-<section class="section">
-  <div class="section-label">Why SSV</div>
-  <h2 class="section-title">Why Silver Springs Ventures</h2>
-  <div class="why">
-    <ul>
-      <li><b>Turnkey deployment:</b> we build, configure, and host everything. You connect your accounts and go.</li>
-      <li><b>One agent, your agent:</b> not a shared chatbot. Each client gets a dedicated instance tuned to their business.</li>
-      <li><b>Brand-accurate from day one:</b> your agent learns your voice, style, and requirements during onboarding.</li>
-      <li><b>Real integrations:</b> connected to the platforms you already use, not a walled garden.</li>
-      <li><b>Productized & proven:</b> backed by a portfolio of live consumer products and active client deployments.</li>
+  <!-- PROBLEM / SOLUTION -->
+  <section class="section">
+    <div class="split">
+      <div class="split-col">
+        <div class="split-label">The Problem</div>
+        <h3>Hours lost to tasks AI should handle.</h3>
+        <p>Drafting posts, managing listings, pulling analytics, responding to inquiries. Most tools are generic, hard to set up, and don't adapt to how your business actually works.</p>
+      </div>
+      <div class="split-col solution">
+        <div class="split-label">Our Solution</div>
+        <h3>A dedicated agent built for your business.</h3>
+        <p>It learns your brand voice, connects to your tools, and runs your workflows autonomously. No prompt engineering. No technical setup on your end. Just an agent that gets it done.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">Four steps to a working agent.</h2>
+    <p class="section-subtitle">A guided process that gets your agent running without technical overhead on your end.</p>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <h4>Discovery Call</h4>
+        <p>We learn your business, your workflows, and where time is being lost.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <h4>Agent Build</h4>
+        <p>We configure your agent with your brand voice, integrations, and capabilities.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <h4>Onboarding</h4>
+        <p>Connect your accounts in minutes through a guided setup. We handle the rest.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">4</div>
+        <h4>Full Speed</h4>
+        <p>Your agent runs daily, creating content, posting, analyzing, and reporting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="section" id="capabilities">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2 class="section-title">What your agent can do.</h2>
+    <p class="section-subtitle">Every agent is custom-built around your specific needs. Here's what they're capable of.</p>
+    <div class="bento">
+      <div class="bento-card feature">
+        <div class="cap-tag">Core Engine</div>
+        <h4>Content Engine</h4>
+        <p>Generates posts, captions, and creative assets in your brand voice automatically. Your agent writes like you, not like a chatbot.</p>
+        <ul class="feature-list">
+          <li>Blog posts, social captions, and email drafts</li>
+          <li>Brand-accurate tone from day one</li>
+          <li>Scheduled publishing across platforms</li>
+          <li>Creative visuals and branded graphics</li>
+        </ul>
+      </div>
+      <div class="bento-card bento-small">
+        <div class="cap-tag">Distribution</div>
+        <h4>Social Media</h4>
+        <p>Publishes to Instagram, Facebook, TikTok and tracks performance analytics.</p>
+      </div>
+      <div class="bento-card bento-small">
+        <div class="cap-tag">Connectivity</div>
+        <h4>Integrations</h4>
+        <p>Connects your existing tools, from Google and social platforms to CRMs and APIs.</p>
+      </div>
+      <div class="bento-card bento-third">
+        <div class="cap-tag">Insights</div>
+        <h4>Analytics</h4>
+        <p>Pulls performance data and delivers actionable insights on a schedule.</p>
+      </div>
+      <div class="bento-card bento-third">
+        <div class="cap-tag">Visuals</div>
+        <h4>Creative Generation</h4>
+        <p>Professional images, videos, and branded visuals produced on demand.</p>
+      </div>
+      <div class="bento-card bento-third">
+        <div class="cap-tag">Custom</div>
+        <h4>Custom Workflows</h4>
+        <p>Built around your specific industry needs, whatever your business requires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section" id="industries">
+    <div class="section-eyebrow">Industries</div>
+    <h2 class="section-title">Who we work with.</h2>
+    <p class="section-subtitle">Your agent adapts to your world, not the other way around.</p>
+    <div class="industries">
+      <span class="pill">Real Estate</span>
+      <span class="pill">Fitness &amp; Wellness</span>
+      <span class="pill">Sports &amp; Recreation</span>
+      <span class="pill">E-Commerce</span>
+      <span class="pill">Hospitality</span>
+      <span class="pill">Marketing Agencies</span>
+      <span class="pill">Professional Services</span>
+      <span class="pill accent">+ Your Industry</span>
+    </div>
+  </section>
+
+  <!-- APP DEVELOPMENT -->
+  <section class="apps-section" id="apps">
+    <div class="section-eyebrow" style="padding-top:72px;max-width:1080px;margin:0 auto 0;">Products</div>
+    <div class="apps">
+      <h2 class="section-title">We ship real products.</h2>
+      <p class="section-subtitle">We don't just talk about AI. We build and ship apps that real people use every day. That same engineering goes into every client engagement.</p>
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-badge">Live on App Store</div>
+          <h4>PinPlay.Golf</h4>
+          <p>A multiplayer golf scoring app with 23+ game types, real-time scoring, and tournament mode. Built with React, Capacitor, and live infrastructure.</p>
+          <div class="app-links">
+            <a href="https://pinplay.golf" target="_blank" rel="noopener">pinplay.golf &rarr;</a>
+          </div>
+        </div>
+        <div class="app-card">
+          <div class="app-badge">In Development</div>
+          <h4>FitFine</h4>
+          <p>A fitness commitment app where users bet on themselves. Built with React, Supabase, Stripe, and Capacitor. Heading to the App Store.</p>
+          <div class="app-links">
+            <a href="https://fitfine.app" target="_blank" rel="noopener">fitfine.app &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section">
+    <div class="section-eyebrow">Why SSV</div>
+    <h2 class="section-title">Why Silver Springs Ventures.</h2>
+    <ul class="why-list">
+      <li>
+        <b>Turnkey deployment</b>
+        <span>We build, configure, and host everything. You connect your accounts and go.</span>
+      </li>
+      <li>
+        <b>One agent, your agent</b>
+        <span>Not a shared chatbot. Each client gets a dedicated instance tuned to their business.</span>
+      </li>
+      <li>
+        <b>Brand-accurate from day one</b>
+        <span>Your agent learns your voice, style, and requirements during onboarding.</span>
+      </li>
+      <li>
+        <b>Real integrations</b>
+        <span>Connected to the platforms you already use, not a walled garden.</span>
+      </li>
+      <li>
+        <b>Productized and proven</b>
+        <span>Backed by a portfolio of live consumer products and active client deployments.</span>
+      </li>
     </ul>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="section" id="contact">
-  <div class="cta-banner">
-    <h2>Ready to put your business on autopilot?</h2>
-    <p>Book a discovery call and we'll map out your custom AI agent.</p>
-    <a href="mailto:ben@silverspringsventures.com" class="btn-primary">Get Your Agent</a>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <h2>Let's build your agent.</h2>
+      <p>Book a discovery call and we'll map out your custom AI agent, end to end.</p>
+      <div class="contact-actions">
+        <a href="mailto:ben@silverspringsventures.com?subject=Discovery%20Call" class="btn-primary">Get Your Agent</a>
+        <a href="#how" class="btn-ghost">
+          See the process
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="contact-email">
+        Or email <a href="mailto:ben@silverspringsventures.com">ben@silverspringsventures.com</a> · 480.332.2313
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-logo">SILVER SPRINGS <span>VENTURES</span></div>
-    <div class="footer-info" style="text-align:right">
-      Silver Springs Ventures LLC · San Francisco, CA<br>
-      <a href="mailto:ben@silverspringsventures.com">ben@silverspringsventures.com</a> · 480.332.2313
+    <div>
+      <div class="footer-brand">SILVER SPRINGS <span>VENTURES</span></div>
+      <div class="footer-info">
+        Silver Springs Ventures LLC · San Francisco, CA<br>
+        <a href="mailto:ben@silverspringsventures.com">ben@silverspringsventures.com</a> · 480.332.2313
+      </div>
+    </div>
+    <div class="footer-legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:ben@silverspringsventures.com">Contact</a>
     </div>
   </div>
 </footer>

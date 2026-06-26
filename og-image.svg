@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F8F6F2"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#A0522D"/>
+  <text x="80" y="240" font-family="Georgia, serif" font-size="56" font-weight="500" fill="#1C1C1C">Silver Springs Ventures</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="42" font-weight="400" font-style="italic" fill="#A0522D">AI agents built around your business.</text>
+  <text x="80" y="420" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#4A4A4A">Content creation · Social media · Customer engagement · Operations</text>
+  <text x="80" y="540" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#8A8580">silverspringsventures.com</text>
+  <rect x="80" y="290" width="48" height="3" fill="#A0522D"/>
+</svg>
